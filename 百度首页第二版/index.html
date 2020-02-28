@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>百度一下，你就知道</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.nav {
+				margin-top: 19px;
+				padding-right: 96px;
+				height: 60px;
+				right: 0;
+				top: 0;
+				position: absolute;
+			}
+
+			.nav_more {
+				position: absolute;
+				right: 10px;
+				width: 60px;
+				height: 23px;
+				background: #38f;
+				text-align: center;
+				overflow: hidden;
+				border-bottom: 1px solid #38f;
+				margin-left: 19px;
+				margin-right: 2px;
+			}
+
+			ul {
+				list-style: none;
+			}
+
+			ul li {
+				display: inline-block;
+				float: left;
+				height: 32px;
+			}
+
+			ul li a {
+				color: #333;
+				font-weight: 700;
+				margin-left: 20px;
+				line-height: 24px;
+				font-size: 13px;
+				text-decoration: underline;
+			}
+
+			ul li a:hover {
+				color: #2319DC;
+			}
+
+			ul li ul {
+				width: 20px;
+				height: 200px;
+				visibility: hidden;
+			}
+
+			ul li:hover ul {
+				visibility: visible;
+			}
+
+			ul li ul li {
+				position: relative;
+				top: 5px;
+				width: 72px;
+				height: 26px;
+				line-height: 26px;
+				text-align: center;
+				color: black;
+				font-size: 12px;
+				z-index: 5;
+				background: white;
+				box-shadow: 0px 1px 2px #D1D1D1;
+			}
+
+			ul li ul li:hover {
+				cursor: pointer;
+				color: white;
+				background: #3385FF;
+			}
+
+			.dot:after {
+				content: ' ';
+				position: absolute;
+				width: 6.5px;
+				height: 6px;
+				background-color: #F23F40;
+				border-radius: 45%;
+				top: 3px;
+			}
+
+			.logo {
+				z-index: 9999;
+				text-align: center;
+				margin-top: 42px;
+			}
+
+			.logo img {
+				width: 270px;
+				height: 129px;
+			}
+
+			.logo img:hover {
+				cursor: pointer;
+			}
+
+			form {
+				position: relative;
+				margin-top: 7.5px;
+				text-align: center;
+			}
+
+			.left_span {
+				top: -7.5px;
+				position: relative;
+				width: 540px;
+				height: 34px;
+				display: inline-block;
+			}
+
+			.edit {
+				position: relative;
+				border: 1px solid #b6b6b6;
+				border-right: none;
+				background: #fff;
+				width: 529px;
+				height: 34px;
+				display: inline-block;
+				vertical-align: top;
+				padding-left: 8px;
+				margin-left: -10px;
+			}
+
+			.edit:focus {
+				outline: none;
+				border: 1px solid #3385FF;
+			}
+
+			.search {
+				z-index: 1;
+				position: absolute;
+				top: 50%;
+				margin-top: -11px;
+				margin-left: -40px;
+				height: 16px;
+				width: 18px;
+				background-image: -webkit-image-set(url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/soutu/img/camera_new_5606e8f.png) 1x, url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/soutu/img/camera_new_x2_fb6c085.png) 2x);
+				cursor: pointer;
+			}
+
+			.search:hover {
+				background-position: 0 -20px;
+			}
+
+			.s_btn {
+				width: 100px;
+				height: 36px;
+				color: #fff;
+				font-size: 15px;
+				letter-spacing: 1px;
+				background: #3385FF;
+				border: 2px solid #3385ff;
+				margin-left: -11px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="nav">
+			<ul>
+				<li><a href="#" class="dot" style="color: #F23F40;">抗击肺炎</a></li>
+				<li><a href="#">新闻</a></li>
+				<li><a href="#" style="letter-spacing: -0.5px;">hao123</a></li>
+				<li><a href="#">地图</a></li>
+				<li><a href="#">视频</a></li>
+				<li><a href="#">贴吧</a></li>
+				<li><a href="#">学术</a></li>
+				<li><a href="#" style="font-weight: 400;">登录</a></li>
+				<li><a href="#" style="font-weight: 400;">设置</a>
+					<ul>
+						<li style="box-shadow: 0px 1px 2px #D1D1D1;">搜索设置</li>
+						<li>高级搜索</li>
+						<li>关闭预测</li>
+						<li style="box-shadow: 0px 1px 2px #D1D1D1">隐私设置</li>
+					</ul>
+				</li>
+				<li><a href="#" class="nav_more" style="color: #FFFFFF;text-decoration: none;font-weight: 400;">更多产品</a></li>
+			</ul>
+		</div>
+		<div class="logo">
+			<img src="imgs/logo.png" title="点击一下,了解更多" />
+		</div>
+		<form action="" method="">
+			<span class="left_span"><input type="text" value="" class="edit"></span>
+			<span class="search"></span>
+			<input type="submit" value="百度一下" class="s_btn"></input>
+		</form>
+	</body>
+</html>
