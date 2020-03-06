@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vmall</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.layout {
+				background-color: #2E2828;
+				height: 36px;
+				line-height: 35px;
+			}
+
+			.nav {
+				width: 1200px;
+				margin: 0 auto;
+			}
+
+			.l-nav li {
+				position: relative;
+				list-style: none;
+				float: left;
+				padding: 0 10px;
+			}
+
+			.l-nav li:first-child {
+				padding: 0;
+			}
+
+			.r-nav li {
+				position: relative;
+				list-style: none;
+				float: left;
+				padding: 0 10px;
+			}
+
+			.nav a {
+				text-decoration: none;
+				color: #afafaf;
+				font-size: 12px;
+			}
+
+			.nav a:hover {
+				color: #fff;
+				cursor: pointer;
+			}
+
+			.r-nav {
+				float: right;
+			}
+
+			.r-nav li:last-child {
+				height: 36px;
+				background-color: #414141;
+				padding-right: 10px;
+			}
+
+			.r-nav ul li div {
+				display: inline-block;
+				position: relative;
+				width: 13px;
+				height: 12px;
+				margin-right: 5px;
+				top: 1.5px;
+				background-image: url(img/mall_car.png);
+			}
+
+			.header {
+				min-width: 1200px;
+				height: 41px;
+				padding: 18px 0 15px 0;
+				background: #fff;
+				position: relative;
+				line-height: 1.5;
+				box-shadow: 0 0 46px rgba(0, 0, 0, 0.03);
+			}
+
+			.header .center {
+				width: 1200px;
+				margin: 0 auto;
+			}
+
+			.logo {
+				float: left;
+				margin-right: 34px;
+			}
+
+			.logo img {
+				height: 36px;
+			}
+
+			.center ul {
+				list-style: none;
+			}
+
+			.center ul li {
+				float: left;
+				margin-right: 24px;
+			}
+
+			.center a {
+				text-decoration: none;
+				font-size: 16px;
+				color: #333;
+				position: relative;
+				line-height: 40px;
+				display: block;
+			}
+
+			.center a img {
+				margin-top: 8px;
+				height: 24px;
+			}
+
+			.center a:hover {
+				opacity: 0.8;
+				color: #ca141d;
+			}
+
+			.search-bar {
+				float: right;
+				width: 238px;
+				height: 28px;
+				line-height: 28px;
+				margin-top: 5px;
+				background: #F0F0F0;
+				/* background-image: url(img/search.png) no-repeat; */
+				border-radius: 15px;
+				border:none;
+				padding-left: 10px;
+			}
+			
+			.search-bar:focus{
+				outline: none;
+			}
+
+			.search-bar:hover {
+				border: .4px solid #d9d9da;
+			}
+
+			.search-bar::-webkit-input-placeholder{
+				font-size: 12px;
+				color:  #afafaf;
+				text-align: center;
+			}
+			
+			.search-icon{
+				position:absolute;
+				top: 28px;
+				right: 180px;
+				width: 16px;
+				height: 16px;
+				background: url(img/search.png);
+			}
+			
+			.right li{
+				position: absolute;
+				right: 210px;
+				top: 28px;
+				color:#FD004D;
+				font-size: 12px;
+				list-style: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="layout">
+			<div class="nav">
+				<div class="l-nav">
+					<ul>
+						<li><a href="#">首页</a></li>
+						<li><a href="#">华为官网</a></li>
+						<li><a href="#">荣耀官网</a></li>
+						<li><a href="#">花粉俱乐部</a></li>
+						<li><a href="#">V码(优购码)</a></li>
+						<li><a href="#">企业购</a></li>
+						<li><a href="#">Select Region</a></li>
+						<li><a href="#">更多精彩&nbspV</a></li>
+					</ul>
+				</div>
+				<div class="r-nav">
+					<ul>
+						<li><a href="#">请登录</a></li>
+						<li><a href="#">注册</a></li>
+						<li><a href="#">我的订单</a></li>
+						<li><a href="">客户服务&nbspV</a></li>
+						<li><a href="#">网站导航&nbspV</a></li>
+						<li><a href="#">手机版&nbspV</a></li>
+						<li>
+							<div></div>
+							<a>购物车(0)</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="header">
+			<div class="center">
+				<div class="logo">
+					<img src="img/logo.png">
+				</div>
+				<ul>
+					<li><a href="#"><img src="img/huawei.png"></a></li>
+					<li><a href="#"><img src="img/rongyao.png"></a></li>
+					<li><a href="#">安心居家</a></li>
+					<li><a href="#">华为Mate&nbspXs</a></li>
+					<li><a href="#">荣耀V30&nbsp;5G</a></li>
+				</ul>
+				<div class="right">
+					<!-- <input style="float:right" type="image" src="img/search.png" />	 -->
+					<input class="search-bar" placeholder="周年庆"></input>
+					<li >Mate Xs</li> 
+					<i class="search-icon"></i>																																					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
