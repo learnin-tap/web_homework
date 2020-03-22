@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		/*  以疯狂动物园（CrazyZoo）为主题，设计并实现多个对象或类，
+			如：大象（Elephant）、老虎（Tiger）、老鹰（Owl）等，每个对象或类都具有相应的属性和方法，
+			管理员（Trainer）管理他们日常的训练、饮食。最后，设计一个场景，实现动物们表演（马戏团）
+		*/
+			
+			// 工厂模式创建对象
+			function Animals(name, age, title, shape, skill) {
+			    var obj = new Object()	//创建对象
+				// 创建属性
+			    obj.name = name
+			    obj.age = age
+			    obj.title = title
+			    obj.shape = shape
+			    obj.skill = skill
+			    // 创建方法
+				obj.SayHi = function() {
+			        console.log("     各位观众，大家好！我是" + this.name)
+			    }
+			    obj.SaySkills = function() {
+			        console.log("     我的表演技能是: " + this.skill)
+			    }
+			    return obj
+			}
+			var elephant = Animals("大象", "8", "陆地巨无霸", "长长的大鼻子", "象鼻喷水,卷大木头")
+			var tiger = Animals("老虎", "4", "万兽之王", "健壮的身体", "空中穿火圈")
+			var owl = Animals("老鹰", "5", "空中之王", "一双敏捷的翅膀", "高空垂直下落")
+			var monkey = Animals("猴子", "3", "美猴王", "灵活的身体", "走钢丝、模仿人类的表情")
+			
+			var animals = [elephant, tiger, owl, monkey]	//以数组形式存放这些实例化的对象
+			
+			console.log("\n--------  Welcome to the CrazyZoo  --------\n\n")
+			setTimeout(() => {
+			    console.log("hello,大家好! 我是疯狂动物园的管理员Trainer，管理马戏团成员的日常的训练、饮食\n\n\n")
+			}, 1500)
+			setTimeout(() => {
+			    console.log("                表演者名单")
+			}, 2500)
+			setTimeout(() => {
+			    for (let i = 0; i < animals.length; i++) {
+			        console.log("       *****     " + (i + 1) + "、" + animals[i].name + "    *****")
+			    }
+			}, 3000)
+			setTimeout(() => {
+			    console.log("\n\n    让我们有请表演们依次上台进行自我介绍\n")
+			}, 4000)
+			
+			
+			for (let i = 0; i < animals.length; i++) {
+			    setTimeout(() => {
+			        console.log("     ---------   表演者" + (i + 1) + "号   ---------")
+			        animals[i].SayHi()
+			        console.log("     称号：" + animals[i].title)
+			        console.log("     年龄: " + animals[i].age + "岁")
+			        console.log("     特点：" + animals[i].shape)
+			        animals[i].SaySkills()
+			
+			        console.log("\n")
+			    }, 5000)
+			}
+			
+			setTimeout(() => {
+			    console.log("\n ------- 今天的展示到此结束，欢迎下次光临！-------  \n\n")
+			}, 6000)
+			
+		</script>
+	</body>
+</html>
