@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			/**
+			 * 使用js的继承机制完成植物大战僵尸的实验：
+			某游戏有下列对象存在：生物（Biology ）、植物（Plant）、僵尸（Zombie）、豌豆射手（PeaseShooter）、食人花（CorpseFlower）、
+			普通僵尸（GeneralZombie）、巨人僵尸（GiantZombie）等。其中豌豆射手和食人花属于植物，
+			普通僵尸和巨人僵尸属于僵尸，各种生物都有生命力、攻击力、防御力三个要素。
+			豌豆射手通过击发豌豆攻击僵尸，食人花只要僵尸靠近它就能把僵尸一口吃掉，但它吃掉僵尸需要时间（可以设定），
+			在吃僵尸的过程中他的防御力下降50%；僵尸通过手抓来攻击植物。如上所述，根据面向对象思想，设计相应类。要求：
+			（1）原型继承法和es6的继承都可以使用
+			（2）要设定一个场景，模拟植物大战僵尸
+			（3）注意写注释。
+			 */
+						
+			function Biology(vitality,aggressivity,defense){    //生物的三个属性 生命力 攻击力 防御力 
+			    this.vitality=vitality
+			    this.aggressivity=aggressivity
+			    this.defense=defense
+			}
+			
+			function Plant(name){//植物的构造函数
+			    this.name=name
+			}  //植物的构造函数
+			Plant.prototype=new Biology('100%',50,40)    // 植物的原型，指向生物的实例对象,初始化生命力，攻击力，防御力
+			
+			
+			function PeaseShooter(){ }                    //  豌豆的构造函数
+			PeaseShooter.prototype=new Plant('豌豆射手')
+			PeaseShooter.prototype.attack=function(){    //  豌豆的原型方法 发射豌豆
+			    console.log('                       发射豌豆攻击僵尸')
+			}
+			
+			
+			function CorpseFlower(cool_time){            //设置食人花吃掉僵尸需要的时间
+			    this.cool_time=cool_time        
+			}
+			CorpseFlower.prototype=new Plant('食人花')     
+			CorpseFlower.prototype.chew=function(){       //食人花的原型方法，一口吃掉,有冷却时间
+			    console.log('              一口吃掉僵尸，消化中~  消化还需'+flower.cool_time)
+			    console.log('              此时'+flower.name+'防御力降低50%，变成'+flower.defense/2+'点')
+			}
+			
+			
+			function Zombie(){ } // 僵尸的构造函数
+			Zombie.prototype=new Biology('100%',200,150)  //僵尸的原型，指向生物的实例对象,初始化生命力，攻击力，防御力
+			Zombie.prototype.move=function(){             //僵尸的原型方法 移动
+			    console.log('        - - -       正在朝植物方向前进            - - -')
+			}
+			Zombie.prototype.start_eat=function(){       //僵尸的原型方法 停在植物面前，并准备手抓攻击
+			    console.log('          停在植物面前，准备对植物进行手抓攻击  ')
+			}
+			
+			
+			function GeneralZombie(name){ this.name=name }  //普通僵尸的构造函数
+			GeneralZombie.prototype=new Zombie()
+			GeneralZombie.prototype.eat=function(){
+			    console.log('              每次手抓将使得植物受到10点伤害')
+			}
+			
+			
+			function GiantZombie(name){ this.name=name }    //巨人僵尸的构造函数
+			GiantZombie.prototype=new Zombie()
+			GiantZombie.prototype.eat=function(){
+			    console.log('             每次手抓将使得植物受到20点伤害')
+			}
+			
+			// 豌豆射手 食人花 巨人僵尸 普通僵尸的实例化
+			var peas=new PeaseShooter() 
+			var flower=new CorpseFlower('10s')
+			var huge=new GiantZombie('巨人僵尸')
+			var normal=new GeneralZombie('普通僵尸')
+			
+			console.log('   ---------------植物大战僵尸游戏开始---------------     \n\n')
+			console.log('   ---------------    第一波攻击开始      --------------  ')
+			console.log('                       '+normal.name+'出现')
+			normal.move()
+			console.log('   '+peas.name+'与其对峙，'+'生命力为'+peas.vitality+' 攻击力为'+peas.aggressivity+' 防御力为'+peas.defense)
+			peas.attack() 
+			console.log('                        '+normal.name+'死亡')
+			
+			console.log('\n\n   ---------------   一大波僵尸正在袭来   --------------  ')
+			console.log('                     '+huge.name+'和'+normal.name+'出现')
+			normal.move()
+			console.log('                 '+normal.name+'移动迅速,靠近了'+flower.name)
+			normal.start_eat()
+			console.log('            '+flower.name+'与其对峙，'+'生命力为'+flower.vitality+' 防御力为'+flower.defense)
+			flower.chew()
+			
+			console.log('\n\n   ---------------    最后一波攻击！    ---------------    ')
+			console.log('             -----'+huge.name+'和'+normal.name+'同时出现'+'-----   ')
+			console.log('   '+peas.name+'与其对峙，'+'生命力为'+peas.vitality+' 攻击力为'+peas.aggressivity+' 防御力为'+peas.defense)
+			peas.attack()  
+			console.log('             '+huge.name+'和'+normal.name+'受到'+peas.name+'攻击')
+			huge.move()
+			huge.start_eat()
+			huge.eat()
+			console.log('               '+peas.name+'被'+huge.name+'啃食掉了(⊙x⊙;)')
+			console.log('\n------------  僵尸进入了你的房子，游戏失败T_T   ------------\n')
+						
+		</script>
+	</body>
+</html>
