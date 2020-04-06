@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>贪吃蛇大作业</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="./css/index.css" />
+	<body>
+		<div>
+			<p>殷鹏飞的贪吃蛇项目大作业</p>
+		</div>
+		<div class="map"></div><!-- 画出地图,设置样式 -->
+		<script src="js/food.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/snake.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/game.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var gm = new Game(document.querySelector(".map")); //初始化游戏对象
+			gm.init(); //开始游戏
+		</script>
+	</body>
+</html>
